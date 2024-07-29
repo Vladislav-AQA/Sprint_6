@@ -1,0 +1,22 @@
+from selenium.webdriver.common.by import By
+
+class OrderPageLocators:
+    NAME_INPUT = By.XPATH, "//input[@placeholder='* Имя']"
+    SURNAME_INPUT = By.XPATH, "//input[@placeholder='* Фамилия']"
+    ADDRESS_INPUT = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"
+    UNDERGROUND_INPUT = By.XPATH, "//input[@placeholder='* Станция метро']"
+    UNDERGROUND_STATION = By.XPATH, "//button[@value='1']"
+    TELEPHONE_NUMBER_INPUT = By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']"
+    NEXT_BUTTON = By.CLASS_NAME, "Button_Button__ra12g Button_Middle__1CSJM"
+    CALENDAR = By.CLASS_NAME, "react-datepicker__input-container"
+    DATE_SELECT = By.CLASS_NAME, "react-datepicker__month"
+    RENT_PERIOD = By.CLASS_NAME, "Dropdown-root"
+    SELECT_RENT_PERIOD = By.XPATH, ".//div[text()='сутки']"
+    CHECK_BOX_BLACK = By.ID, "black"
+    CHECK_BOX_GREY = By.ID, "grey"
+    ORDER_BUTTON_RENT_FORM = By.CLASS_NAME, "Button_Button__ra12g Button_Middle__1CSJM"
+    AGREE_RENT_CONDITIONS = By.XPATH, "//button[contains(text(),'Да')]"
+    NUMBER_ORDER = By.CLASS_NAME, "Order_ModalHeader__3FDaJ"
+    STATUS_BUTTON = By.CLASS_NAME, "Order_NextButton__1_rCA"
+    SAMOKAT_LOGO = By.CLASS_NAME, "Header_LogoScooter__3lsAR"
+    HOME_PAGE_TITLE = By.CLASS_NAME, "Home_Header__iJKdX"
