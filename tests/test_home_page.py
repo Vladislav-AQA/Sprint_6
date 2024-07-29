@@ -2,7 +2,7 @@ import allure
 import selenium
 import pytest
 from data import Answers
-import helpers
+import urls
 from pages.home_page import HomePage
 
 
@@ -22,14 +22,13 @@ class TestHomePage:
 
         ]
     )
-    @allure.description("Проверка списка в разделе 'Вопросы о важном' на главной странице")
+    @allure.title("Проверка списка в разделе 'Вопросы о важном' на главной странице")
     def test_question_and_answer(self, question_num, expected_result):
         home_page = HomePage(driver)
-        @allure.step(f"Переходим на домашнюю страницу {helpers.HOME_PAGE_URL}")
-        home_page.get_url(helpers.HOME_PAGE_URL)
-        @allure.step("Сравниваем ожидаемый резульат с полученным (вопрос-ответ)")
+        home_page.get_url(urls.HOME_PAGE_URL)
         result = home_page.click_on_question_and_get_answer_text(
             question_num
         )
+
         assert result == expected_result
 

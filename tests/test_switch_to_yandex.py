@@ -1,23 +1,18 @@
 import allure
 import selenium
 import pytest
-from data import OrdersButtons
-import helpers
+import urls
 from pages.switch_page import SwitchPage
-from locators.home_page_locators import HomePageLocators
 
 class TestSwitchPage:
 
-    switch_page = SwitchPage(driver)
-    @allure.step(f"Переходим на домашнюю странцу{helpers.HOME_PAGE_URL}")
-    switch_page.get_url(helpers.HOME_PAGE_URL)
+    @allure.title("Проверка перехода на новую вкладку")
+    def test_switch_page(self):
 
-    @allure.step("Кликаем по надписи 'Яндекс'")
-    switch_page.click_on_element()
+         switch_page = SwitchPage(driver)
+         switch_page.get_url(urls.HOME_PAGE_URL)
+         switch_page.click_on_element()
+         switch_page.switch_to_window()
 
-    @allure.step("Переключаемся на вкладку Яндекса")
-    switch_page.switch_to_window()
-
-    @allure.step("Проверяем наличие 'dzen.ru' в адресе новой страницы")
-    assert "dzen.ru" in helpers.DZEN_PAGE
+    assert "dzen.ru" in urls.DZEN_PAGE
 

@@ -1,20 +1,25 @@
 import selenium
-import helpers
+import urls
 from locators.home_page_locators import HomePageLocators
 from pages.base_page import BasePage
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+import allure
+
 
 
 class HomePage(BasePage):
 
-    def get_url(self, URL):
-        self.get_url(helpers.HOME_PAGE_URL)
+    @allure.step("Перейти на домашнюю веб-страницу")
+    def get_url(self):
+        self.driver.get(urls.HOME_PAGE_URL)
 
+
+    @allure.step("Принять куки")
     def accept_cookies(self):
         el = self.find_element(*HomePageLocators.COOKIES_BUTTON)
         el.click()
 
+
+    @allure.step("Проверить соответствие вкладок вопрос-ответ")
     def click_on_question_and_get_answer_text(self, num):
         formatted_question_locator = self.format_locator(HomePageLocators.QUESTION, num)
         formatted_answer_locator = self.format_locator(HomePageLocators.ANSWER, num)
